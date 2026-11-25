@@ -13,20 +13,29 @@ npm start
 
 Run `npm run build` to generate the static site in `dist/`. Open `dist/index.html` directly for an offline copy, or serve the directory from a static host.
 
-## Cloudflare Workers
+## Deploy
 
-`wrangler.jsonc` serves the generated `dist/` directory as a static-assets Worker, with no application server. Wrangler runs the Eleventy build before deploying.
+`wrangler.jsonc` serves `dist/` as a static-assets Worker. There is no Worker script. The custom domain is `bitcradle.thatalexguy.dev` on the `thatalexguy.dev` zone, and `workers.dev` stays enabled.
+
+Pages use relative URLs and there is no `pathPrefix`, so the site is built for the domain root. There is no site-wide URL setting to change. Missing paths use the default `not_found_handling` (`none`) because the site has no `404.html`.
+
+In Cloudflare Workers Builds, connect this GitHub repository with the root directory set to `/`:
+
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+
+Workers Builds installs dependencies, then runs those commands. It reads Node.js `22.23.4` from `.node-version`. It does not run the custom build block in `wrangler.jsonc`, so the build command above is required. The deploy command uses the Wrangler version in `devDependencies`.
 
 ```sh
-npm run preview             # local Worker preview
-npm run deploy -- --dry-run # validate without publishing
-npx wrangler login          # authenticate with Cloudflare
-npm run deploy             # publish to the authenticated account
+npm run preview              # local Worker preview
+npx wrangler deploy --dry-run # validate without publishing
+npx wrangler login           # authenticate with Cloudflare
+npm run deploy               # build, then publish
 ```
 
-Deployment requires access to the intended Cloudflare account. No account ID or custom domain is configured yet; inspect the account's zones and existing DNS records before adding the `bitcradle` subdomain as a Workers Custom Domain. `workers_dev` is enabled for initial deployment checks.
-
-The generated output is ignored by Git. Remove `dist/` before rebuilding after deleting or renaming pages or assets, to avoid publishing stale files. Keep Cloudflare credentials out of the repository; `.env`, `.dev.vars`, and `.wrangler/` are ignored.
+`npm run deploy` builds, and `wrangler deploy` runs the Eleventy build again before upload. The generated output is ignored by Git. Remove `dist/` before rebuilding after deleting or renaming pages or assets, so a publish does not keep stale files. Keep Cloudflare credentials out of the repository; `.env`, `.dev.vars`, and `.wrangler/` are ignored.
 
 ## Editing the site
 
