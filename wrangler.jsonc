@@ -1,14 +1,29 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "bitcradle",
+  // Static assets only. Do not add a `main` script.
   "compatibility_date": "2026-11-25",
+  // Keep the workers.dev hostname alongside the custom domain.
+  // Routes would otherwise turn workers_dev off.
   "workers_dev": true,
+  "routes": [
+    { "pattern": "bitcradle.thatalexguy.dev", "custom_domain": true }
+  ],
+  // Local `wrangler deploy` runs this before upload. Workers Builds does not
+  // honor this block; set its build command to `npm run build` separately.
   "build": {
     "command": "npm run build"
   },
   "assets": {
     "directory": "./dist",
+    // Eleventy emits directory indexes (for example blog/index.html).
     "html_handling": "auto-trailing-slash",
+    // No 404.html in the site. "none" is the default.
     "not_found_handling": "none"
+  },
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true, "head_sampling_rate": 1 },
+    "traces": { "enabled": true, "head_sampling_rate": 0.01 }
   }
 }
