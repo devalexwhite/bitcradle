@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "palmlatro",
+    "name": "Palmlatro",
+    "short": "A Balatro-inspired poker roguelike for color Palm handhelds.",
+    "description": "A poker roguelike for color Palm OS 5 handhelds. Pick your hand, stack Jokers, and see how far one deck can take you.",
+    "details": [
+      "Tap up to five cards to play a hand. Each blind gives you a score to beat and a limited number of hands to get there. Spend your winnings in the shop between rounds.",
+      "The game fits a 320 × 320 screen and supports the five-way navigator. It has been tested in PumpkinOS on Linux. Individual handheld models are still being checked."
+    ],
+    "install": "Build Palmlatro.prc using the instructions on GitHub. Add it to the J-Pilot install queue, run HotSync, and open Palmlatro from the launcher.",
+    "github": "https://github.com/devalexwhite/Palmlatro",
+    "image": {
+      "file": "palmlatro-device.webp",
+      "alt": "Palmlatro title screen framed in a Palm Tungsten T",
+      "caption": "Palmlatro · Tungsten T"
+    }
+  },
+  {
+    "slug": "versamail",
+    "name": "VersaMail Conduit",
+    "short": "Fetch mail and send your replies at the next HotSync.",
+    "description": "Write a reply on your Palm and leave it in the Outbox. At the next HotSync, J-Pilot sends it through your desktop mail account.",
+    "details": [
+      "The conduit also fetches incoming mail over IMAP. You can choose how many days to bring across or fetch unread messages only. HTML mail becomes plain text for the handheld screen.",
+      "The plugin targets VersaMail 2.6.1. It has been tested against saved Palm databases. Testing a full sync on physical hardware is still pending."
+    ],
+    "install": "Build and install the plugin, restart J-Pilot, and enable VersaMail in sync preferences. Sync once to discover the account slots, enter your mail settings, then sync again.",
+    "github": "https://github.com/devalexwhite/jpilot-versamail",
+    "image": {
+      "file": "hotsync-device.webp",
+      "alt": "Palm OS HotSync screen with Cradle/Cable selected, framed in a Palm Tungsten T",
+      "caption": "HotSync over Cradle/Cable · Tungsten T"
+    }
+  },
+  {
+    "slug": "feeds-to-plucker",
+    "name": "Feeds to Plucker",
+    "short": "Carry today’s feeds in a single offline Plucker document.",
+    "description": "Each HotSync gathers today’s articles into a single Plucker document. Unplug the cradle and take the reading with you.",
+    "details": [
+      "Subscribe to RSS, Atom, or Gemsub in J-Pilot. On the Palm, a linked contents page lets you jump straight to an article. The conduit looks for full text first and falls back to the feed summary.",
+      "Pictures fit within 160 × 160 pixels and use one-bit dithering. A Palm Tungsten T3 has received an edition over HotSync from an Omarchy Linux desktop."
+    ],
+    "install": "Install Plucker on the Palm and build the plugin for GTK 3 J-Pilot. Restart J-Pilot, add subscriptions under Feeds to Plucker, and sync. Open J-Pilot RSS Today on the handheld.",
+    "github": "https://github.com/devalexwhite/jpilot-rss-plucker",
+    "image": {
+      "file": "feeds-device.webp",
+      "alt": "Three linked stories in a Plucker edition, framed in a Palm Zire 71",
+      "caption": "Sample feed edition · Zire 71"
+    }
+  },
+  {
+    "slug": "palm-bible-converter",
+    "name": "Palm Bible+ Converter",
+    "short": "Build a Palm Bible+ module from your own Bible text.",
+    "description": "Build a Palm Bible+ module from a verse-per-line text file, structured JSON, or a local OCR EPUB.",
+    "details": [
+      "The converter supports both the 66-book Protestant and 73-book Catholic canons. It uses Palm Bible+ book IDs so that two translations open side by side can follow the same passage.",
+      "After writing the database, the converter reads it back and checks each verse against the input. Bible texts are supplied by the reader."
+    ],
+    "install": "Run convert.py on your desktop with Python 3.8 or newer. Install Palm Bible+ on the handheld, then send the resulting .pdb file over HotSync or copy it to the expansion card.",
+    "github": "https://github.com/devalexwhite/palmbible-pdb-converter",
+    "image": {
+      "file": "bible-device.webp",
+      "alt": "Genesis open in Palm Bible+, framed in a Palm Tungsten C",
+      "caption": "Genesis 1 in Palm Bible+ · Tungsten C"
+    }
+  }
+]

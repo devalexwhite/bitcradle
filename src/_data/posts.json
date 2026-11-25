@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "a-hand-of-poker-in-320-pixels",
+    "title": "A hand of poker in 320 pixels",
+    "date": "2026-11-25",
+    "project": "palmlatro",
+    "summary": "How Palmlatro fits a hand, a score, and a shop on a square screen.",
+    "paragraphs": [
+      "A round of Palmlatro has a simple target. Pick up to five cards, play the hand, and clear the blind before you run out of hands. There’s room to show the chips and multiplier before you commit.",
+      "On a 320 × 320 screen, the five-way navigator earns its keep. Left and right move between cards, the center button selects one, and up plays the hand. The stylus works too.",
+      "Between blinds, the table gives way to a shop. A Joker changes how a hand scores. A Planet card levels up a particular hand. Both fit in the same pocket as the rest of the deck.",
+      "The current build has been tested in PumpkinOS on Linux. If you run it on a handheld, the project is collecting device models and play reports on GitHub."
+    ]
+  },
+  {
+    "slug": "todays-feeds-on-a-tungsten-t3",
+    "title": "Today’s feeds on a Tungsten T3",
+    "date": "2026-11-23",
+    "project": "feeds-to-plucker",
+    "summary": "One HotSync leaves a day’s reading in Plucker, pictures included.",
+    "paragraphs": [
+      "The Tungsten T3 can leave the cradle with a whole edition of the day’s articles. Feeds to Plucker ran on an Omarchy Linux desktop and sent the finished document to the handheld over HotSync.",
+      "The desktop does the fetching. Each article gets an entry in a linked table of contents. Pictures are resized to fit within 160 × 160 pixels and dithered to one bit before the document goes across.",
+      "Open J-Pilot RSS Today in Plucker, tap a headline, and read. The next sync replaces the edition, so there’s only one copy to look for on the Palm."
+    ]
+  }
+]
